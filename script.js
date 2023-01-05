@@ -3,12 +3,12 @@
         const input = document.querySelector('input')
         const show = document.querySelector('p')
 
-        const infura_id = '29178f9cfb7c49e283d427d1812f1337'
+        const infura_id = ''
 
         const provider = new ethers.providers.JsonRpcProvider(`https://mainnet.infura.io/v3/${infura_id}`)
 
 
-
+    
         const main = async (address) => {
             try{
 
@@ -16,9 +16,9 @@
                 show.textContent += `${ethers.utils.formatEther(balance)}ETH`
             }catch{
                 show.textContent=' '
-                show.textContent += `Account Balance:  ${address} is not found on the block`
+                show.textContent += `ETH BALANCE:  ${address} is not found on the block`
                 setTimeout(()=>{
-                    show.textContent='Account Balance: '
+                    show.textContent='ETH BALANCE: '
                 },4000)
             }            
         }
