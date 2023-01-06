@@ -4,7 +4,7 @@
         const show = document.querySelector('p')
         const loader = document.querySelector('.loader')
 
-        const infura_id = ''
+        const infura_id = '29178f9cfb7c49e283d427d1812f1337'
 
         const provider = new ethers.providers.JsonRpcProvider(`https://mainnet.infura.io/v3/${infura_id}`)
 
