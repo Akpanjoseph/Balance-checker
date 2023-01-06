@@ -2,16 +2,17 @@
         const form = document.querySelector('form')
         const input = document.querySelector('input')
         const show = document.querySelector('p')
+        const loader = document.querySelector('.loader')
 
         const infura_id = ''
 
         const provider = new ethers.providers.JsonRpcProvider(`https://mainnet.infura.io/v3/${infura_id}`)
 
 
-    
+
         const main = async (address) => {
             try{
-
+                show.textContent='ETH BALANCE: '
                 const balance =  await provider.getBalance(address)
                 show.textContent += `${ethers.utils.formatEther(balance)}ETH`
             }catch{
@@ -26,5 +27,12 @@
 
         form.addEventListener('submit', (e) => {
             e.preventDefault()
-            main(input.value)
+            loader.style.display="block"
+            
+            setTimeout(()=>{
+                main(input.value)
+                loader.style.display="none"
+            },4000)
+
+            
         })
